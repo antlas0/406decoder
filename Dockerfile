@@ -13,8 +13,11 @@ RUN apt-get update && apt-get install -y \
 
 COPY ./app /app
 WORKDIR /app
-RUN gcc ./dec406_V7.c -lm -o ./dec406_V7
-RUN gcc ./reset_usb.c -lm -o ./reset_usb
+RUN gcc ./dec406_V7.c -lm -o ./dec406_V7 \
+    && chmod u+x ./dec406_V7
+RUN gcc ./reset_usb.c -lm -o ./reset_usb \
+    && chmod u+x ./reset_usb
+
 RUN python -m pip install -r requirements.txt
 
 CMD ["python3", "decoder.py"]
