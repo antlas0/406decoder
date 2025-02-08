@@ -1,5 +1,6 @@
 # 406decoder
-Decodes 406M EIPRB data
+Decodes 406M EIPRB data, based on already working code from [F4EHY](http://jgsenlis.free.fr/406_PI.html).
+
 
 # How to install
 First we need to install some prerequisites.
@@ -29,3 +30,5 @@ $ python -m pip install -r requirements.txt
 1. Plug your favorite RTL-SDR device to your machine.
 2. In the `app` directory, call `python decoder.py`
 
+# Credits
+Full credits to [F4EHY](http://jgsenlis.free.fr) for the decoding part.
