@@ -2,7 +2,7 @@
 Decodes 406M EIPRB data
 
 # How to install
-First we nee to install some prerequisites.
+First we need to install some prerequisites.
 ```bash
 $ apt-get update && apt-get install -y \
     gcc \
