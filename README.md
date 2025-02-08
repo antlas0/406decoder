@@ -2,7 +2,7 @@
 Decodes 406M EIPRB data, based on already working code from [F4EHY](http://jgsenlis.free.fr/406_PI.html).
 
 
-# How to install
+## How to install
 First we need to install some prerequisites.
 ```bash
 $ apt-get update && apt-get install -y \
@@ -25,7 +25,7 @@ $ gcc ./reset_usb.c -lm -o ./reset_usb \
 $ python -m pip install -r requirements.txt
 ```
 
-# How to start
+## How to start
 
 1. Plug your favorite RTL-SDR device to your machine.
 2. In the `app` directory, call `python decoder.py -h` for parameters description.
@@ -51,5 +51,5 @@ options:
                         Output directory, default automatically generated.
 ```
 
-# Credits
+## Credits
 Full credits to [F4EHY](http://jgsenlis.free.fr/406_PI.html) for the decoding part.
