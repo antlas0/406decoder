@@ -63,7 +63,18 @@ def scan_frequencies(f1_scan: int, f2_scan: int, ppm: int = 0, osm: bool = False
     if osm:
         decode_command += " --osm"
 
-    power_command = f"rtl_power -p {ppm} -f {f1_scan}:{f2_scan}:400 -i55 -P -O -1 -e55 -w hamming {logpower_filepath} 2>/dev/null"
+    power_command:list = []
+    power_command.append("rtl_power")
+    power_command.append(f"-p {ppm}")
+    power_command.append(f"-f {f1_scan}:{f2_scan}:400")
+    power_command.append("-i55")
+    power_command.append("-P")
+    power_command.append("-O")
+    power_command.append("-1")
+    power_command.append("-e55")
+    power_command.append("-whamming")
+    power_command.append(f"{logpower_filepath}")
+    power_command.append("2>/dev/null")
     
     while True:
         reset_dvbt()
@@ -140,8 +151,8 @@ def display_trame(filepath: str):
 def main():
     """Parses command-line arguments and initiates frequency scanning."""
     parser = argparse.ArgumentParser(description="Scanner la fréquence des balises 406MHz.")
-    parser.add_argument("-s", "--freq-start", type=int, help="Fréquence de départ", action="store", default=406e6)
-    parser.add_argument("-e", "--freq-end", type=int, help="Fréquence de fin", action="store", default=407e6)
+    parser.add_argument("-s", "--freq-start", type=int, help="Fréquence de départ", action="store", default=406.4e6)
+    parser.add_argument("-e", "--freq-end", type=int, help="Fréquence de fin", action="store", default=406.7e6)
     parser.add_argument("--ppm", type=int, default=0, help="Décalage PPM")
     parser.add_argument("--osm", action="store_true", help="Activer osm")
     parser.add_argument("-T", "--telegram-token", help="Telegram bot token")
