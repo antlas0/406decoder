@@ -30,7 +30,7 @@ def reset_dvbt():
 
 def send_telegram(date: str, telegram_token: str, telegram_chatid: str) -> bool:
     """Sends an alert message to a Telegram chat."""
-    message = f"Alerte Balise 406\nDate et Heure (UTC) du decodage: {date}"
+    message = f"Alerte Balise 406\nDate et Heure du decodage: {date}"
     url = f"https://api.telegram.org/bot{telegram_token}/sendMessage"
     data = {"chat_id": telegram_chatid, "text": message}
     try:
